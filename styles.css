@@ -1,0 +1,13 @@
+    
+    .header{
+            
+        background-color: #336699;
+        height: 50px;
+        padding-top: 20px;
+        box-shadow: 1px 1px 3px #666;
+    }
+
+    .header:hover{
+        background-color: orange;
+        transition: all .2s ease-in-out
+    }                    
