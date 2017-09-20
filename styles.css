@@ -72,8 +72,9 @@
         display: flex;
         justify-content: center;
 
-        font-size: 28px;
+        font-size: 40px;
         color: #555;
+        margin: 40px;
 
         /* background-color: blueviolet; */
     }
@@ -81,7 +82,7 @@
     .button{
         padding: 15px;
         margin: 10px;
-        margin-top: 40px;
+        margin-top: 20px;
         margin-bottom: 40px;
         width: 100px;
         background-color: skyblue;
@@ -107,7 +108,7 @@
 
 
         font-weight: 700;
-        font-size: 16px;
+        font-size: 30px;
         color: #555;
     }
 
@@ -117,7 +118,7 @@
 
         margin-bottom: 40px;
 
-        font-size: 12px;
+        font-size: 18px;
         color: #555;
     }
 
