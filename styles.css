@@ -126,11 +126,16 @@
     }
 
     .item{
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        
         width: 350px;
+        height: 200px;
         float: left;
-        margin-top: 3px;
+        /* margin-top: 3px;
         margin-left: 40px;
-        margin-right: 40px;
+        margin-right: 40px; */
         padding: 3px;
     }
     
