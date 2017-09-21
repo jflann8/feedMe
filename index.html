@@ -2,7 +2,7 @@
 
 <head>
 
-    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/styles.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 </head>
 
@@ -21,90 +21,100 @@
         <div class="col-6">
 
 
-            <button 
-                class="button" 
-                type="button"
-                onclick="yesClicked()"
-            >YES!</button>
+            <button class="button" type="button" onclick="yesClicked()">YES!</button>
         </div>
         <div class="col-6-alt">
-            <button 
-                class="button" 
-                type="button"
-                onclick="noClicked()"
-            >NO</button>
+            <button class="button" type="button" onclick="noClicked()">NO</button>
         </div>
 
     </div>
 
-<div 
-id="container"
-style="visibility: hidden"
->
+    <div id="container" style="visibility: hidden">
 
-    <div class="row-alt">
-        <div id="feed-1">THEN LET ME FEED YOU! </div>
-        <div id="feed-2"> (I'm not human, btw) </div>
-    </div>
+        <div class="row-alt">
+            <div id="feed-1">THEN LET ME FEED YOU! </div>
+            <div id="feed-2"> (I'm not human, btw) </div>
+        </div>
 
-    <div class="row">
-        
-            <svg id="reload" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px"
-                height="100px" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480;" xml:space="preserve">
+        <div class="row">
+
+            <svg id="reload" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                width="100px" height="100px" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480;" xml:space="preserve">
                 <path d="M160.469,242.194c0-44.414,36.023-80.438,80.438-80.438c19.188,0,36.711,6.844,50.5,18.078L259.78,209.93l99.945,11.367    
                 l0.805-107.242l-30.766,29.289c-23.546-21.203-54.624-34.164-88.804-34.164c-73.469,0-133.023,59.562-133.023,133.016    
                 c0,2.742,0.242-2.266,0.414,0.445l53.68,7.555C161.03,245.108,160.469,247.562,160.469,242.194z M371.647,237.375l-53.681-7.555    
                 c1.017,5.086,1.556,2.617,1.556,7.992c0,44.414-36.008,80.431-80.43,80.431c-19.133,0-36.602-6.798-50.383-17.97l31.595-30.078    
                 l-99.93-11.366l-0.812,107.25l30.789-29.312c23.531,21.141,54.57,34.055,88.688,34.055c73.468,0,133.023-59.555,133.023-133.008    
-                C372.062,235.078,371.812,240.085,371.647,237.375z"
-                />
+                C372.062,235.078,371.812,240.085,371.647,237.375z" />
             </svg>
 
-    </div>
-
-
-
-    <div class="row">
-
-        <div class="col-4">Apple Pie</div>
-        <div class="col-4">Tomato Soup</div>
-        <div class="col-4">Pizza</div>
-    </div>
-
-
-    <div class="row">
-        <div class="img-container">
-            <img alt="" src="img/applePie.jpeg" />
         </div>
 
-        <div id="img-container">
-            <img alt="" src="img/tomatoSoup.jpeg" />
+
+
+        <div class="row">
+
+            <div class="col-4">Apple Pie</div>
+            <div class="col-4">Tomato Soup</div>
+            <div class="col-4">Pizza</div>
         </div>
 
-        <div class="img-container">
-            <img alt="" src="img/pizza.jpg" />
+
+        <div class="row">
+            <div class="img-container">
+                <img alt="" src="img/applePie.jpeg" />
+            </div>
+
+            <div id="img-container">
+                <img alt="" src="img/tomatoSoup.jpeg" />
+            </div>
+
+            <div class="img-container">
+                <img alt="" src="img/pizza.jpg" />
+            </div>
         </div>
+
     </div>
-
-</div>
 
     <script>
-        
-        function init()
-        {
+        function init() {
 
             console.log("In Init.");
             var time = document.getElementById("time");
             console.log(time);
 
             // time.innerText = "It's 4:00PM. Are you Hungry?";
-
-            time.innerText = "It's " + moment().format("lll") + ". Are you Hungry?";
-        }
+            // time.innerText = "It's " + moment().format("lll") + ". Are you Hungry?";
 
 
-        function yesClicked(e)
-        {
+            var dinnerTime = moment({ hour: 19, minute: 0 });
+            console.log(moment().isBefore(dinnerTime)); //true
+
+            // var timeUntilDinner = moment().diff(dinnerTime,'hours');
+            // var hoursUntilDinner = moment(dinnerTime).diff(moment(),'hours');
+         
+            var minsUntilDinner = (moment(dinnerTime).diff(moment(),'minutes')/60) .toFixed(2);
+
+      
+
+
+            if (moment().isBefore(dinnerTime)) {
+                var timeText = "There are " + minsUntilDinner + " Hours Until Dinner. Are you Hungry?"
+            } else { var timeText ="Dinner has passed. Are you Still Hungry?" };
+            console.log("true");
+
+            
+
+
+            time.innerText = timeText;
+
+           
+        };
+
+
+
+
+        function yesClicked(e) {
             console.log('yes was clicked');
 
             var container = document.getElementById("container");
@@ -115,10 +125,9 @@ style="visibility: hidden"
 
 
 
-        }
-        
-        function noClicked(e)
-        {
+        };
+
+        function noClicked(e) {
             console.log('no was clicked');
 
             var container = document.getElementById("container");
@@ -126,9 +135,7 @@ style="visibility: hidden"
 
             container.setAttribute("style", "visibility: hidden");
             console.log(container);
-
-        }
-    
+        };
     </script>
 
 
