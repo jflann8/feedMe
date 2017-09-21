@@ -2,31 +2,45 @@
 
 <head>
 
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 </head>
 
 
-<body>
+<body onload="init()">
 
     <div class="row-alt">
         <div id="watch">
-            <img alt="" src="donut.png" />
+            <img alt="" src="img/donut.png" />
         </div>
-        <div id="time">It's 4:00PM. Are you Hungry?</div>
+        <div id="time"></div>
     </div>
 
     <div class="row">
 
         <div class="col-6">
-            <button class="button" type="button">YES!</button>
+
+
+            <button 
+                class="button" 
+                type="button"
+                onclick="yesClicked()"
+            >YES!</button>
         </div>
         <div class="col-6-alt">
-            <button class="button" type="button">NO</button>
+            <button 
+                class="button" 
+                type="button"
+                onclick="noClicked()"
+            >NO</button>
         </div>
 
     </div>
 
-
+<div 
+id="container"
+style="visibility: hidden"
+>
 
     <div class="row-alt">
         <div id="feed-1">THEN LET ME FEED YOU! </div>
@@ -60,19 +74,62 @@
 
     <div class="row">
         <div class="img-container">
-            <img alt="" src="applePie.jpeg" />
+            <img alt="" src="img/applePie.jpeg" />
         </div>
 
         <div id="img-container">
-            <img alt="" src="tomatoSoup.jpeg" />
+            <img alt="" src="img/tomatoSoup.jpeg" />
         </div>
 
         <div class="img-container">
-            <img alt="" src="pizza.jpg" />
+            <img alt="" src="img/pizza.jpg" />
         </div>
     </div>
 
+</div>
 
+    <script>
+        
+        function init()
+        {
+
+            console.log("In Init.");
+            var time = document.getElementById("time");
+            console.log(time);
+
+            // time.innerText = "It's 4:00PM. Are you Hungry?";
+
+            time.innerText = "It's " + moment().format("lll") + ". Are you Hungry?";
+        }
+
+
+        function yesClicked(e)
+        {
+            console.log('yes was clicked');
+
+            var container = document.getElementById("container");
+            console.log(container);
+
+            container.setAttribute("style", "");
+            console.log(container);
+
+
+
+        }
+        
+        function noClicked(e)
+        {
+            console.log('no was clicked');
+
+            var container = document.getElementById("container");
+            console.log(container);
+
+            container.setAttribute("style", "visibility: hidden");
+            console.log(container);
+
+        }
+    
+    </script>
 
 
 </body>
