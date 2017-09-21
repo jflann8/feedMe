@@ -90,16 +90,18 @@
             var dinnerTime = moment({ hour: 19, minute: 0 });
             console.log(moment().isBefore(dinnerTime)); //true
 
-            // var timeUntilDinner = moment().diff(dinnerTime,'hours');
-            // var hoursUntilDinner = moment(dinnerTime).diff(moment(),'hours');
+            
+            var hoursUntilDinner = moment(dinnerTime).diff(moment(),'hours');
          
-            var minsUntilDinner = (moment(dinnerTime).diff(moment(),'minutes')/60) .toFixed(2);
+            var minsUntilDinner = 
+                ((moment(dinnerTime).diff(moment(),'minutes')/60)
+                - hoursUntilDinner)*60;
+           
 
-      
 
 
             if (moment().isBefore(dinnerTime)) {
-                var timeText = "There are " + minsUntilDinner + " Hours Until Dinner. Are you Hungry?"
+                var timeText = "There are " + hoursUntilDinner + " Hours and " + minsUntilDinner + " Minutes Until Dinner. Are you Hungry?"
             } else { var timeText ="Dinner has passed. Are you Still Hungry?" };
             console.log("true");
 
