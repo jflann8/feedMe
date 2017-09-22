@@ -20,8 +20,9 @@
 
         <div class="col-6">
 
-
-            <button class="button" type="button" onclick="yesClicked()">YES!</button>
+            <a href="#identifier">
+            <button class="button" type="button" onclick="yesClicked()">YES!</button> 
+            </a>
         </div>
         <div class="col-6-alt">
             <button class="button" type="button" onclick="noClicked()">NO</button>
@@ -30,6 +31,7 @@
     </div>
 
     <div id="container" style="visibility: hidden">
+        <div id="identifier"></div>
 
         <div class="row-alt">
             <div id="feed-1">THEN LET ME FEED YOU! </div>
@@ -109,7 +111,6 @@
                     - hoursUntilDinner) * 60).toFixed(0);
             setInterval(minsUntilDinner, 1000);
             console.log(minsUntilDinner);
-
 
 
 
