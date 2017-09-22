@@ -127,7 +127,11 @@
 
     img{
         width: inherit;
+        cursor: pointer;
+        
     }
+
+   
 
     .img-container{
         display: flex;
@@ -149,5 +153,5 @@
     }
 
     #reload:hover{
-fill: yellowgreen;
+        fill: yellowgreen;
     }
