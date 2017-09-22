@@ -11,11 +11,8 @@
 
     <div class="row-alt">
         <div id="watch">
-                <div id="up"></div>
-            <img 
-            id=alt="" 
-            onclick='alert("YOU ARE BETTER THAN THAT")'
-            src="img/donut.png" />
+            <div id="up"></div>
+            <img id=alt="" onclick='alert("YOU ARE BETTER THAN THIS")' src="img/donut.png" />
         </div>
         <div id="time"></div>
     </div>
@@ -24,12 +21,12 @@
 
         <div class="col-6">
 
-            <a href="#down">
+            <a href="#down" class="smoothScroll">
             <button class="button" type="button" onclick="yesClicked()">YES!</button> 
             </a>
         </div>
         <div class="col-6-alt">
-            <a href="#up">
+            <a href="#up" class="smoothScroll">
             <button class="button" type="button" onclick="noClicked()">NO</button>
             </a>
         </div>
@@ -53,7 +50,7 @@
                 c0,2.742,0.242-2.266,0.414,0.445l53.68,7.555C161.03,245.108,160.469,247.562,160.469,242.194z M371.647,237.375l-53.681-7.555    
                 c1.017,5.086,1.556,2.617,1.556,7.992c0,44.414-36.008,80.431-80.43,80.431c-19.133,0-36.602-6.798-50.383-17.97l31.595-30.078    
                 l-99.93-11.366l-0.812,107.25l30.789-29.312c23.531,21.141,54.57,34.055,88.688,34.055c73.468,0,133.023-59.555,133.023-133.008    
-                C372.062,235.078,371.812,240.085,371.647,237.375z" />
+                C372.062,235.078,371.812,240.085,371.647,237.375z" onclick='alert("Options are for ninnies")' />
             </svg>
 
         </div>
@@ -95,22 +92,51 @@
             // time.innerText = "It's " + moment().format("lll") + ". Are you Hungry?";
 
 
-            // var update;
-            // (update = function () {
-            //     document.getElementById("datetime")
-            //         .innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
-            // })();
-            // setInterval(update, 1000);
-
-            var dinnerTime = moment({ hour: 19, minute: 0 });
-            console.log(moment().isBefore(dinnerTime)); //true
-
+            //Actual Time
             var testTime = moment();
             // var testTime = moment({hour: 20, minute:0});
+
+            // //Breakfast
+            //             var bfastTime = moment({ hour: 7, minute: 30 });
+            //             console.log(moment().isBefore(bfastTime)); //true
+
+
+            //             var hoursUntilBfast = moment(bfastTime).diff(moment(testTime), 'hours');
+            //             setInterval(minsUntilBfast, 1000);
+            //             console.log(hoursUntilBfast);
+
+            //             var minsUntilBfast =
+            //                 (((moment(BfastTime).diff(moment(testTime), 'minutes') / 60)
+            //                     - hoursUntilBfast) * 60).toFixed(0);
+            //             setInterval(minsUntilBfast, 1000);
+            //             console.log(minsUntilBfast);
+
+            // //Lunch
+            //             var lunchTime = moment({ hour: 12, minute: 0 });
+            //             console.log(moment().isBefore(dinnerTime)); //true
+
+
+
+            //             var hoursUntilLunch = moment(lunchTime).diff(moment(testTime), 'hours');
+            //             setInterval(minsUntilLunch, 1000);
+            //             console.log(hoursUntilLunch);
+
+            //             var minsUntilLunch =
+            //                 (((moment(lunchTime).diff(moment(testTime), 'minutes') / 60)
+            //                     - hoursUntilLunch) * 60).toFixed(0);
+            //             setInterval(minsUntilLunch, 1000);
+            //             console.log(minsUntilLunch);
+
+
+
+            //Dinner
+            var dinnerTime = moment({ hour: 19, minute: 0 });
+            console.log(moment().isBefore(dinnerTime)); //true
 
 
             var hoursUntilDinner = moment(dinnerTime).diff(moment(testTime), 'hours');
             setInterval(minsUntilDinner, 1000);
+            console.log(hoursUntilDinner);
 
             var minsUntilDinner =
                 (((moment(dinnerTime).diff(moment(testTime), 'minutes') / 60)
@@ -119,20 +145,67 @@
             console.log(minsUntilDinner);
 
 
-
             if (moment(testTime).isBefore(dinnerTime)) {
                 var timeText = "There are "
                     + hoursUntilDinner
                     + " Hours and "
                     + minsUntilDinner
                     + " Minutes Until Dinner. Are you Hungry?"
-            } else { var timeText = "Dinner has passed. Are you Still Hungry?" };
+            } else { var timeText = "Dinner Time has passed. Are you Still Hungry?" };
             console.log("true");
 
 
 
 
             time.innerText = timeText;
+
+
+// //MealTime
+//            if(moment().isBefore({hour: 7, minute:0})) {
+//                var meal="Breakfast"}; 
+//             if((moment().isAfter({hour:7, minute:1}) 
+//                 and moment().isBefore({hour: 12, minute:0})) {
+//                 var meal="Lunch" }
+//             else {
+//                 var meal="Dinner"
+//             }
+                
+
+//             else (moment().isAfter({hour:12, minute:1})};
+
+//            }
+
+//             var mealTime = if(moment()= ){
+//                 moment({ hour: 19, minute: 0 });
+//             };
+//             console.log(moment().isBefore(dinnerTime)); //true
+
+
+//             var hoursUntilMeal = moment(mealTime).diff(moment(testTime), 'hours');
+//             setInterval(minsUntilMeal, 1000);
+//             console.log(hoursUntilMeal);
+
+//             var minsUntilMeal =
+//                 (((moment(mealTime).diff(moment(testTime), 'minutes') / 60)
+//                     - hoursUntilMeal) * 60).toFixed(0);
+//             setInterval(minsUntilMeal, 1000);
+//             console.log(minsUntilMeal);
+
+
+//             if (moment(testTime).isBefore(mealTime)) {
+//                 var timeText = "There are "
+//                     + hoursUntilMeal
+//                     + " Hours and "
+//                     + minsUntilMeal
+//                     + " Minutes Until " + Meal + ". Are you Hungry?"
+//             } else { var timeText = "Dinner Time has passed. Are you Still Hungry?" };
+//             console.log("true");
+
+
+
+
+//             time.innerText = timeText;
+
 
 
         };
@@ -163,6 +236,8 @@
             console.log(container);
         };
     </script>
+
+
 
 
 </body>
